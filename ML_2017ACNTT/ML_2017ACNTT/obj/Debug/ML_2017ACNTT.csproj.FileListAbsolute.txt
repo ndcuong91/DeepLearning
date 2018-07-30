@@ -1,0 +1,9 @@
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\bin\Debug\ML_2017ACNTT.exe.config
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\bin\Debug\ML_2017ACNTT.exe
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\bin\Debug\ML_2017ACNTT.pdb
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\obj\Debug\ML_2017ACNTT.csprojResolveAssemblyReference.cache
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\obj\Debug\ML_2017ACNTT.MainForm.resources
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\obj\Debug\ML_2017ACNTT.Properties.Resources.resources
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\obj\Debug\ML_2017ACNTT.csproj.GenerateResource.Cache
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\obj\Debug\ML_2017ACNTT.exe
+E:\Others\ML_2017ACNTT\ML_2017ACNTT\obj\Debug\ML_2017ACNTT.pdb
