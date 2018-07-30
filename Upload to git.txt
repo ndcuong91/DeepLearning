@@ -1,0 +1,19 @@
+Echo “link to folder” >> README.md
+*) Upload local repo to server
+
+cd [your local repo folder]
+
+git init
+
+git add ... #add all your file to local repo
+
+git commit –m “first commit”
+
+git remote add origin [link to repo in GitHub]
+
+Git push –u origin master
+
+*) other useful commands:
+
+git status
+
