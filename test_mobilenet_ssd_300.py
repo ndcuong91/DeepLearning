@@ -15,7 +15,7 @@ import xml_parser
 import argparse
 from timeit import default_timer as timer
 
-ssd_model = '/home/prdcv/PycharmProjects/gvh205/ssd/ssd_models/mobilenet/ssd_mxnet/deploy_ssd_mobilenet_300_fromcaffe_no_detection'  # input ssd model here
+ssd_model = 'PycharmProjects/ssd/ssd_models/mobilenet/ssd_mxnet/deploy_ssd_mobilenet_300_fromcaffe_no_detection'  # input ssd model here
 shape = 300
 checkpoint = 0
 target = 'opencl'
@@ -31,7 +31,6 @@ class_names = ["aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "
 
 
 input_folder = '/home/prdcv/Desktop/darknet/test_voc_2007/VOCdevkit/VOC2007/JPEGImages'
-output_folder = '/home/prdcv/PycharmProjects/gvh205/ssd/predicted_opencl_300x300_2/'
 
 DEBUG_MODE = False
 ROUND_DECIMAL = 3
