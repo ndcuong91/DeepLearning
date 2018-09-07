@@ -271,16 +271,7 @@ if __name__ == "__main__":
     shape_dict = {'data': dshape}
     with nnvm.compiler.build_config(opt_level=1):
         graph, lib, params = nnvm.compiler.build(nnvm_sym, target, shape_dict, params=nnvm_params)
-
-    # source_opencl = lib.imported_modules[0].get_source()
-    # text_file = open("/home/prdcv/PycharmProjects/gvh205/source_mobilenet_300_opencl.txt", "w")
-    # text_file.write(source_opencl)
-    # text_file.close()
-    #
-    # text_file = open("/home/prdcv/PycharmProjects/gvh205/graph_ir_mobilenet_300_opencl.txt", "w")
-    # text_file.write(graph.ir())
-    # text_file.close()
-
+        
     m_graph = graph_runtime.create(graph, lib, ctx)
     m_graph.set_input(**params)
     _, outshape = nnvm.compiler.graph_util.infer_shape(graph, shape={"data": dshape})
@@ -317,16 +308,7 @@ if __name__ == "__main__":
 
                 line = f.replace('.jpg', '') + " " + str(prob) + " " + str(left) + " " + str(top) + " " + str(right) + " " + str(bot) + '\n'
                 class_file[resu[0]] = class_file[resu[0]] + line
-            #
-            # file = open(output_folder + f.replace('.jpg', '') + '.txt', 'w')
-            # file.write(result_txt)
-            # file.close()
-            # display_plt(image, final_output.asnumpy()[0], thresh = threshold)
-
-            # write result to xml file
-            #xml_data = xml_parser.XMLParser(f, image_path, image.shape, round(detect_time, ROUND_DECIMAL),
-                                            #round(load_img_time, ROUND_DECIMAL))
-            #xml_data.write_to_xml(res, xml_result_folder)
+                
     for i in range(20):
         file = open(output_folder + 'comp4_det_test_' + voc_name[i]+'.txt', 'w')
         file.write(class_file[i])
