@@ -1,0 +1,1 @@
+net: "train_val_demo.prototxt"test_iter: 500test_interval: 500display: 100max_iter: 5000000snapshot: 10000snapshot_prefix: "models/"weight_decay: 0.000500lr_policy: "fixed"base_lr: 0.001000momentum: 0.900000momentum2: 0.999000type: "Adam"solver_mode: GPU
