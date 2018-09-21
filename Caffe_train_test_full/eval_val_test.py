@@ -5,14 +5,14 @@ import os
 import numpy as np
 
 
-net_file= '/home/prdcv/Desktop/zaloAIchallenge/landmark/TrainVal/deploy.prototxt'
-caffe_model='/home/prdcv/Desktop/zaloAIchallenge/landmark/TrainVal/models/_iter_212000.caffemodel'
+net_file= '/home/prdcv/Desktop/zaloAIchallenge/landmark/TrainVal/ResNet-152-deploy.prototxt'
+caffe_model='/home/prdcv/Desktop/zaloAIchallenge/landmark/TrainVal/resnet_iter_180000.caffemodel'
 mean_file='/home/prdcv/Desktop/zaloAIchallenge/landmark/TrainVal/mean.npy'
 
 val_folder=config.data_folder+'/val'
 test_folder='/home/prdcv/Desktop/zaloAIchallenge/landmark/Public'
 
-shape= 256
+shape= 224
 channel=3  #3 for color image, 1 for gray
 
 
@@ -88,8 +88,8 @@ def eval_test(net, transformer):
 def main():
 
     network, transformer=init_caffe()
-    #val_accurary(network, transformer)
-    eval_test(network, transformer)
+    val_accurary(network, transformer)
+    #eval_test(network, transformer)
 
     print('end.')
 
