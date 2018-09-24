@@ -40,4 +40,27 @@ run in order: 01.create_train_val_folder --> 02.create_lmdb --> 03.make_mean_ima
     \val.txt (list all files in val folder)
 
 
+
+Fine-Tuning
+Fine-Tuning is the process of training specific sections of a network to improve results.
+
+Making Layers Not Learn
+To stop a layer from learning further, you can set it's param attributes in your prototxt.
+
+For example:
+
+layer {
+  name: "example"
+  type: "example" 
+  ...
+  param {
+    lr_mult: 0    #learning rate of weights
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 0    #learning rate of bias
+    decay_mult: 0
+  }
+}
+
       
