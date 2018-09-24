@@ -54,10 +54,9 @@ Use preprocessing_data.py to check corrupt or duplicated files on Data folder
 
 
 ### Fine-Tuning
-**Fine-Tuning is the process of training specific sections of a network to improve results. **
+**Fine-Tuning is the process of training specific sections of a network to improve results.**
 
-**Making Layers Not Learn. **
-To stop a layer from learning further, you can set it's param attributes in your prototxt.
+**To stop a layer from learning further**, you can set it's param attributes in your prototxt.
 
 For example:
 ```
@@ -75,4 +74,7 @@ layer {
   }
 }
 ```
+
+### Evaluate result
++ Use script *eval_val_test.py* to evaluate your result on valid and test set
       
