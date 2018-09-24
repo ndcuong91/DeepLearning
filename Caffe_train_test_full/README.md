@@ -1,11 +1,13 @@
-PREPARATION:
-+ Build caffe successfully
-+ Data folder.
+# Caffe 1.0 training testing from A to Z on Ubuntu
+**This repo is a complete guide to work with Caffe on Ubuntu.**
+## Preparation:
++ Build caffe successfully https://github.com/BVLC/caffe/releases/tag/1.0 
++ Data folder (contain images in separate class)
 
-RUN
-run in order: 01.create_train_val_folder --> 02.create_lmdb --> 03.make_mean_image -->04.train
+## Run
++ Run in order: 01.create_train_val_folder --> 02.create_lmdb --> 03.make_mean_image -->04.train
 
-01.create_train_val_folder: 
+**01.create_train_val_folder: ** 
 + input:"Data" folder:
   +Data:
     \1:
@@ -39,16 +41,19 @@ run in order: 01.create_train_val_folder --> 02.create_lmdb --> 03.make_mean_ima
     \train.txt (list all files in train folder)
     \val.txt (list all files in val folder)
 
+## Others
+### Clean Data
+Use preprocessing_data.py to check corrupt or duplicated files on Data folder
 
 
-Fine-Tuning
-Fine-Tuning is the process of training specific sections of a network to improve results.
+### Fine-Tuning
+**Fine-Tuning is the process of training specific sections of a network to improve results. **
 
-Making Layers Not Learn
+**Making Layers Not Learn. **
 To stop a layer from learning further, you can set it's param attributes in your prototxt.
 
 For example:
-
+```
 layer {
   name: "example"
   type: "example" 
@@ -62,5 +67,5 @@ layer {
     decay_mult: 0
   }
 }
-
+```
       
