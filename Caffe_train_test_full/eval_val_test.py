@@ -5,9 +5,9 @@ import os
 import numpy as np
 
 
-net_file= '/home/prdcv/Desktop/zaloAIchallenge/landmark/TrainVal/ResNet-152-deploy.prototxt'
-caffe_model='/home/prdcv/Desktop/zaloAIchallenge/landmark/TrainVal/resnet_iter_180000.caffemodel'
-mean_file='/home/prdcv/Desktop/zaloAIchallenge/landmark/TrainVal/mean.npy'
+net_file= '/home/prdcv/Desktop/zaloAIchallenge/TrainVal/ResNet-152-deploy.prototxt'
+caffe_model='/home/prdcv/Desktop/zaloAIchallenge/TrainVal/resnet_iter_400000.caffemodel'
+mean_file='/home/prdcv/Desktop/zaloAIchallenge/TrainVal/mean.npy'
 
 val_folder=config.data_folder+'/val'
 test_folder='/home/prdcv/Desktop/zaloAIchallenge/landmark/Public'
@@ -34,28 +34,27 @@ def classify_img(net,transformer, img_path):
     return output
 
 
-def val_accurary(net, transformer):
+def val_accurary(net, transformer, topk=5):
     classes = [os.path.join(val_folder, o) for o in os.listdir(val_folder) if
                os.path.isdir(os.path.join(val_folder, o))]
     for i in range(len(classes)):
         classes[i] = classes[i].replace(val_folder + '/', '')
 
-    top3_result=0
+    topk_result=0
     total_file=0
     classes=np.sort(classes)
+    print("Calculate top "+str(topk)+" result for each class: ")
     for i in range(len(classes)):
         if (classes[i] == 'train' or classes[i] == 'val' or classes[i] == 'train_lmdb' or classes[i] == 'val_lmdb'):
             continue
         val_class_folder = val_folder + '/' + classes[i]
         onlyfiles = [f for f in os.listdir(val_class_folder) if os.path.isfile(os.path.join(val_class_folder, f))]
-
-
         class_file=len(onlyfiles)
         good_classify=0
         for j in range(len(onlyfiles)):
             file_path=val_folder+'/'+classes[i]+'/'+onlyfiles[j]
             classify_img(net,transformer,file_path)
-            best_n = net.blobs['prob'].data[0].flatten().argsort()[-1:-4:-1]
+            best_n = net.blobs['prob'].data[0].flatten().argsort()[-1:-(topk+1):-1]
 
             for k in range(len(best_n)):
                 if (str(best_n[k])==classes[i]):
@@ -63,14 +62,15 @@ def val_accurary(net, transformer):
 
         print("Class "+classes[i]+": " +str(good_classify)+"/"+str(class_file)+", accuracy: "+str(float(good_classify)/float(class_file)))
         total_file+=len(onlyfiles)
-        top3_result+=good_classify
+        topk_result+=good_classify
+    print("Val result top "+str(topk)+": "  + str(topk_result) + "/" + str(total_file) + ", accuracy: " + str(float(topk_result) / float(total_file)))
 
-    print("Val accuracy: " +str(float(top3_result)/float(total_file)))
-
-def eval_test(net, transformer):
+def eval_test(net, transformer,print_process=100 ):
     onlyfiles = [f for f in os.listdir(test_folder) if os.path.isfile(os.path.join(test_folder, f))]
     result='id,predicted\n'
     for j in range(len(onlyfiles)):
+        if (j % print_process == 0):
+            print('Tested: ' + str(j) + " files")
         result+=onlyfiles[j].replace('.jpg','')+','
         file_path = test_folder + '/' + onlyfiles[j]
         classify_img(net, transformer, file_path)
@@ -82,7 +82,7 @@ def eval_test(net, transformer):
             else:
                 result+=str(best_n[k])+'\n'
 
-    with open(config.data_folder + '/submission_CuongND.csv', 'w') as file:
+    with open(config.data_folder + '/submission_CuongND_resnet_152_4.csv', 'w') as file:
         file.write(result)
 
 def main():

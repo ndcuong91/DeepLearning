@@ -48,8 +48,6 @@ for i in range(len(sub_dir)):
     for l in range(len(valfiles)):
         val_txt+=sub_dir[i]+'/'+valfiles[l]+' '+sub_dir[i]+'\n'
 
-with open(data_folder+'/train.txt', 'w') as file:
-    file.write(train_txt)
-with open(data_folder+'/val.txt', 'w') as file:
-    file.write(val_txt)
+config.save_file(data_folder+'/train.txt',train_txt)
+config.save_file(data_folder+'/val.txt',train_txt)
 print('end create_train_val')

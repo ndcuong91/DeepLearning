@@ -1,0 +1,1 @@
+/home/prdcv/PycharmProjects/gvh205/caffe_1.0/build/tools/caffe train -solver=/home/prdcv/Desktop/zaloAIchallenge/TrainVal/ResNet_solver.prototxt -snapshot /home/prdcv/Desktop/zaloAIchallenge/TrainVal/resnet_iter_266297.solverstate -gpu 0
