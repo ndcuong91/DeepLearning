@@ -5,7 +5,7 @@
 + Data folder (contain images in separate class)
 
 ## Run
-### Create train and valid folder
+### 1. Create train and valid folder
 + Use script *01.create_train_val_folder*
 + input:"Data" folder:
   +Data:
@@ -39,13 +39,13 @@
       .....
     \train.txt (list all files in train folder)
     \val.txt (list all files in val folder)
-### Create LMDB file
+### 2. Create LMDB file
 + Caffe will work faster with LMDB data. To use it, run *02.create_lmdb.sh*
 
-### Make mean image
+### 3. Make mean image
 + The training process in Caffe will converge faster with data's nomarlization technique. Run *03.make_mean_image.sh* to use it
 
-### Training
+### 4. Training
 + Now you are ready for training, simply use *04.1.train.sh* or *04.2.train_resume.sh* to resume training from snapshot
 
 ## Others
