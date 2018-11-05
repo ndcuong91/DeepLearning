@@ -1,0 +1,15 @@
+
+Motherboard: Gigabyte X150-PLUS WS-CF
+	sudo dmidecode -t 2
+
+GPU: GeForce GTX1080 , CC 6.1, Cudacore=2560, VRAM=8Gb, max 180Watts
+	nvidia-settings
+
+CPU: Intel® Xeon(R) CPU E3-1230 v5 @ 3.40GHz × 8 
+RAM: 16Gb GSkill Ripjaws (2x8Gb)
+	Search->Detail
+HardDrive: 
+PowerSupply: acBel ipower90m 600W Plus gold
+	sudo dmidecode --type 39
+
+https://outervision.com/power-supply-calculator
