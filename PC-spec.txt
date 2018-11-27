@@ -1,5 +1,6 @@
 
-Motherboard: Gigabyte X150-PLUS WS-CF
+300-spec
+Main: Gigabyte X150-PLUS WS-CF
 	sudo dmidecode -t 2
 
 GPU: GeForce GTX1080 , CC 6.1, Cudacore=2560, VRAM=8Gb, max 180Watts
@@ -9,7 +10,15 @@ CPU: Intel® Xeon(R) CPU E3-1230 v5 @ 3.40GHz × 8
 RAM: 16Gb GSkill Ripjaws (2x8Gb)
 	Search->Detail
 HardDrive: 
-PowerSupply: acBel ipower90m 600W Plus gold
+PSU: acBel ipower90m 600W Plus gold
 	sudo dmidecode --type 39
+
+299-spec
+Main: MSI H97 GAMING 3 (MS-7918)
+GPU: GeForce GTX TITAN X, cuda core 3072 memory 12288 Mb max 350 watts
+CPU: Intel® Core™ i7-4790 CPU @ 3.60GHz × 8 
+RAM: 4x8Gb
+PSU: corsair RM1000x
+
 
 https://outervision.com/power-supply-calculator
