@@ -1,0 +1,84 @@
+
+main: MSI X370 gaming plus
+cpu: AMD ryzen 5 2600 3.4 ghz (3.9 ghz with boost) 6 cores/ 12 threads
+ram: GSKILL RIPJAW V 16G (8Gb*2) DRR4 BUSS 2800
+vga: GTX 1080 Ti ARMOR 11G OC
+ssd: samsung PM981 M2 512Gb
+psu: Antec eco 650 80 plus bronze
+case: vitra glitter force X1 pro 2
+
+CPU:
+
+duycuong@duycuongAI:/usr/local/cuda-9.0/samples/bin/x86_64/linux/release$ lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                12
+On-line CPU(s) list:   0-11
+Thread(s) per core:    2
+Core(s) per socket:    6
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             AuthenticAMD
+CPU family:            23
+Model:                 8
+Model name:            AMD Ryzen 5 2600 Six-Core Processor
+Stepping:              2
+CPU MHz:               1377.835
+CPU max MHz:           3850,0000
+CPU min MHz:           1550,0000
+BogoMIPS:              7700.35
+Virtualization:        AMD-V
+L1d cache:             32K
+L1i cache:             64K
+L2 cache:              512K
+L3 cache:              8192K
+NUMA node0 CPU(s):     0-11
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb hw_pstate sme ssbd ibpb vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt sha_ni xsaveopt xsavec xgetbv1 xsaves clzero irperf xsaveerptr arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif overflow_recov succor smca
+
+GPU:
+
+duycuong@duycuongAI:/usr/local/cuda-9.0/samples/bin/x86_64/linux/release$ ./deviceQuery
+./deviceQuery Starting...
+
+ CUDA Device Query (Runtime API) version (CUDART static linking)
+
+Detected 1 CUDA Capable device(s)
+
+Device 0: "GeForce GTX 1080 Ti"
+  CUDA Driver Version / Runtime Version          9.0 / 9.0
+  CUDA Capability Major/Minor version number:    6.1
+  Total amount of global memory:                 11169 MBytes (11711807488 bytes)
+  (28) Multiprocessors, (128) CUDA Cores/MP:     3584 CUDA Cores
+  GPU Max Clock rate:                            1645 MHz (1.64 GHz)
+  Memory Clock rate:                             5505 Mhz
+  Memory Bus Width:                              352-bit
+  L2 Cache Size:                                 2883584 bytes
+  Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
+  Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
+  Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
+  Total amount of constant memory:               65536 bytes
+  Total amount of shared memory per block:       49152 bytes
+  Total number of registers available per block: 65536
+  Warp size:                                     32
+  Maximum number of threads per multiprocessor:  2048
+  Maximum number of threads per block:           1024
+  Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+  Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+  Maximum memory pitch:                          2147483647 bytes
+  Texture alignment:                             512 bytes
+  Concurrent copy and kernel execution:          Yes with 2 copy engine(s)
+  Run time limit on kernels:                     Yes
+  Integrated GPU sharing Host Memory:            No
+  Support host page-locked memory mapping:       Yes
+  Alignment requirement for Surfaces:            Yes
+  Device has ECC support:                        Disabled
+  Device supports Unified Addressing (UVA):      Yes
+  Supports Cooperative Kernel Launch:            Yes
+  Supports MultiDevice Co-op Kernel Launch:      Yes
+  Device PCI Domain ID / Bus ID / location ID:   0 / 38 / 0
+  Compute Mode:
+     < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
+
+deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 9.0, CUDA Runtime Version = 9.0, NumDevs = 1
+Result = PASS
